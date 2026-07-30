@@ -241,6 +241,10 @@ export default class DateMenuFormatter extends Extension {
       (display) =>
         (display.style = `font-size: ${FONT_SIZE}pt; font-weight: ${FONT_WEIGHT}; text-align: ${TEXT_ALIGN_MODE}`)
     )
+
+    // Draw straight away. A display added here is empty until the next tick,
+    // which is up to a minute on the lowest update level.
+    if (EVERY !== null) this.update()
   }
 
   // Returns true once connected, false while Dash to Panel is still absent.
